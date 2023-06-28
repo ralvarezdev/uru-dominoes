@@ -61,5 +61,6 @@ class Player{
 };
 
 vector<int> shuffleCards(int numberCards, int players);
+void clearAndTitle(string title);
 
-#endif 
+#endif
