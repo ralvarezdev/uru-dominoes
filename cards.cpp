@@ -11,15 +11,15 @@ using std::cout;
 using std::tuple;
 using std::vector;
 
+// Functions
 
 vector<int> shuffleCards(int numberCards, int players){
     random_device rd; // Random Number Generator
-    uniform_int_distribution<int> dist(0,numberCards-1);
 
     bool exist;
-    int x, y, n, random, doubles;
+    int x, y, n, random, number, doubles;
     vector<int> shuffledCards;
-    vector<bool> generatedCards;
+    vector<int> cards;
 
     // The number of cards divided by the number of players has a remainder
     x = numberCards%players;
@@ -29,22 +29,15 @@ vector<int> shuffleCards(int numberCards, int players){
     }
 
     for(x=0;x<numberCards;x++){
-        generatedCards.push_back(false);
+        cards.push_back(x);
     }
 
-    for(n=0;n<numberCards;n++){
-        exist = false;
-
-        while(exist==false){
-            random = dist(rd);
-
-            if(generatedCards[random]==false){
-                generatedCards[random] = true;
-                exist = true;
-                break;
-            }
-        }
-        shuffledCards.push_back(random);
+    for(n=1;n<=numberCards;n++){
+        uniform_int_distribution<int> dist(0,numberCards-n);
+        random = dist(rd);
+        number = cards[random];
+        cards.erase(cards.begin() + random);
+        shuffledCards.push_back(number);
     }
     return shuffledCards;
 }
@@ -310,7 +303,7 @@ void Board::checkUpPosition(bool equalTiles, int *row, int *col, bool *lieDown, 
     bool ready;
     int compare, x;
 
-    while(ready==false){
+    while(true){
         *row = rowUp;
         *col = colLeft;
 
@@ -349,7 +342,8 @@ void Board::checkUpPosition(bool equalTiles, int *row, int *col, bool *lieDown, 
                     colLeft++;
                     break;
             }
-            ready = true;
+            break;
+
         }else if(compare>3&&equalTiles==false){
             if(equalTilesUp==false){
                 x = 2;
@@ -374,7 +368,8 @@ void Board::checkUpPosition(bool equalTiles, int *row, int *col, bool *lieDown, 
                     *lieDown = true;               
                     break;
             }
-            ready = true;
+            break;
+
         }else{
             switch(upSegment){
                 case 1:
@@ -406,7 +401,7 @@ void Board::checkDownPosition(bool equalTiles, int *row, int *col, bool *lieDown
     bool ready;
     int compare, x;
 
-    while(ready==false){
+    while(true){
         *row = rowDown;
         *col = colRight;
 
@@ -445,7 +440,7 @@ void Board::checkDownPosition(bool equalTiles, int *row, int *col, bool *lieDown
                     colRight--;
                     break;
             }
-            ready = true;
+            break;
 
         }else if(compare>3&&equalTiles==false){
             if(equalTilesDown==false){
@@ -471,7 +466,7 @@ void Board::checkDownPosition(bool equalTiles, int *row, int *col, bool *lieDown
                     *lieDown = true;               
                     break;
             }
-            ready = true;
+            break;
         
         }else{
             switch(downSegment){
@@ -641,14 +636,14 @@ void Player::playCard(Board *dominoesBoard, int cardsPerPlayer, int sixSixPositi
 
             if(cardsPlayed[cardNumber-1]==false){
                 if(domino.sideA==cardPlayedUp||domino.sideB==cardPlayedDown||domino.sideB==cardPlayedUp||domino.sideA==cardPlayedDown){
-                    canPlay = true;
+                    break;
                 }else{
                     cout<<"\t- Cannot use card of position "<<cardNumber;
                 }
             }else{
                 cout<<"\t- Card of position "<<cardNumber<<" already played";
             }
-        }while(canPlay==false);
+        }while(true);
 
         cardsPlayed[cardNumber-1] = true;
     }
