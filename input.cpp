@@ -17,7 +17,7 @@ string lowercaseString(string input){
 }
 
 bool booleanQuestion(string question){
-    bool answer, wrongInput;
+    bool answer;
     int x;
     string input;
     
@@ -33,14 +33,9 @@ bool booleanQuestion(string question){
         }else if(input=="n"||input=="no"){
             break;
         }else{
-            wrongInput = true;
-        }
-
-        if(wrongInput==true){
             cout<<"\t- Wrong Input: Type 'y', 'yes' or 'n', 'no'"<<"\n";
         }
-    }while(wrongInput==true);
-
+    }while(true);
     return answer;
 }
 
@@ -83,17 +78,14 @@ string stringQuestion(string message){
 }
 
 void enterCharToContinue(string message, string charRequested){
-    bool wrongInput;
     string input;
 
     do{
-        wrongInput = false;
-
         cout<<"\n\t"<<message<<": ";
         cin>>input;
 
-        if(input!=charRequested){
-            wrongInput=true;
+        if(input==charRequested){
+            break;
         }
-    }while(wrongInput==true);
+    }while(true);
 }
