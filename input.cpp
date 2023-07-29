@@ -83,7 +83,7 @@ void enterCharToContinue(string message, string charRequested){
     string input;
 
     do{
-        cout<<"\n\n\t"<<message<<": ";
+        cout<<"\n\n"<<message<<": ";
         cin>>input;
 
         if(input==charRequested){
@@ -93,6 +93,6 @@ void enterCharToContinue(string message, string charRequested){
 }
 
 void pressEnterToContinue(){
-    cout<<"\n\n\tPress 'Enter' to continue: ";
+    cout<<"\n\nPress 'Enter' to continue: ";
     getchar();
 }
