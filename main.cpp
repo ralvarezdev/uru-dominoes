@@ -44,12 +44,12 @@ int main(){
             numberPlayers = intQuestion("Number of players?", 3, 4);
 
             if(numberPlayers==3){
-                maxDoubles = 4;
+                maxDoubles = 5;
                 numberCards = 27;
 
             }else if(numberPlayers==4){
                 dominoesBoard.teams = true;
-                maxDoubles = 3;
+                maxDoubles = 4;
                 numberCards = 28;
             }
 
@@ -175,8 +175,8 @@ int main(){
                 playerTurn = x;
                 sixSixPosition = hasSixSix;
             }
-
-            enterCharToContinue("\nPress '1' to Continue", "1");
+           
+            enterCharToContinue("Press '1' to Continue", "1");
         }
 
         do{
@@ -184,10 +184,11 @@ int main(){
             dominoesBoard.printBoard();
 
             if(dominoesBoard.cardsPlayed==0){
+                n = 0;
                 if(newGame==true){
                     players[playerTurn].playCard(&dominoesBoard, cardsPerPlayer, sixSixPosition);
                     newGame = false;
-
+                    pressEnterToContinue();
                 }else{
                     if(numberPlayers==3){
                         playerTurn = roundWinner;
@@ -213,9 +214,6 @@ int main(){
                     hand = playerTurn;
                     players[playerTurn].playCard(&dominoesBoard, cardsPerPlayer);
                 }
-                n = 0;
-                enterCharToContinue("\nPress '1' to Continue", "1");
-
             }else{
                 if(numberPlayers==3){
                     cout<<"\n\tPlayer "<<players[playerTurn].nickname<<" turn:\n";
@@ -238,7 +236,7 @@ int main(){
                     }else if(numberPlayers==4){
                         cout<<"\n\t- Team "<<players[playerTurn].nickname<<", Player "<<players[playerTurn].teamNumber<<" cannot play in any of both sides";
                     }
-                    enterCharToContinue("\nPress '1' to Continue", "1");
+                    pressEnterToContinue();
                 }
             }
 
@@ -254,7 +252,7 @@ int main(){
                         players[x].printCardsLeft(numberPlayers);
 
                         points += players[x].countPointsLeft();
-                        enterCharToContinue("\nPress '1' to Continue", "1");
+                        pressEnterToContinue();
                     }
                 }
             }else if(n!=numberPlayers){
@@ -295,7 +293,7 @@ int main(){
                         }
                         drawPlayers.push_back(x);
                     }
-                    enterCharToContinue("\nPress '1' to Continue", "1");
+                    pressEnterToContinue();
                 }
 
                 if(draw==true){
@@ -361,6 +359,4 @@ int main(){
     }while(gameEnded==false);
 
     players[gameWinner].winBackground(numberPlayers);
-
-    return 0;
 }
