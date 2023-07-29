@@ -1,8 +1,10 @@
 #include"input.h"
 #include<iostream>
 #include<string>
+#include<cstdio>
 
 using std::cout; using std::cin;
+using std::getchar;
 using std::string;
 using std::stoi;
 
@@ -81,11 +83,16 @@ void enterCharToContinue(string message, string charRequested){
     string input;
 
     do{
-        cout<<"\n\t"<<message<<": ";
+        cout<<"\n\n\t"<<message<<": ";
         cin>>input;
 
         if(input==charRequested){
             break;
         }
     }while(true);
+}
+
+void pressEnterToContinue(){
+    cout<<"\n\n\tPress 'Enter' to continue: ";
+    getchar();
 }
