@@ -11,5 +11,6 @@ bool booleanQuestion(string question);
 int intQuestion(string question, int startRange, int endRange);
 string stringQuestion(string message);
 void enterCharToContinue(string message, string charRequested);
+void pressEnterToContinue();
 
 #endif
