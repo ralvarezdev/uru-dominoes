@@ -4,7 +4,6 @@
 #include<cstdio>
 
 using std::cout; using std::cin;
-using std::getchar;
 using std::string;
 using std::stoi;
 
@@ -19,26 +18,23 @@ string lowercaseString(string input){
 }
 
 bool booleanQuestion(string question){
-    bool answer;
+    char c;
     int x;
     string input;
     
     do{
-        cout<<"\n\t"<<question<<" [Y/n] ";
+        cout<<"\n\t"<<question<<" [y/N] ";
         cin>>input;
+        c = tolower(input[0]);
 
-        input = lowercaseString(input);
-
-        if(input=="y"||input=="yes"){
-            answer = true;
-            break;
-        }else if(input=="n"||input=="no"){
-            break;
+        if(c=='y'){
+            return true;
+        }else if(c=='n'){
+            return false;
         }else{
-            cout<<"\t- Wrong Input: Type 'y', 'yes' or 'n', 'no'"<<"\n";
+            cout<<"\t- Wrong Input: Type 'y', 'Y' or 'n', 'N'"<<"\n";
         }
     }while(true);
-    return answer;
 }
 
 int intQuestion(string question, int startRange, int endRange){
@@ -56,7 +52,7 @@ int intQuestion(string question, int startRange, int endRange){
             answer = stoi(input);
 
             if(answer<startRange||answer>endRange){
-            wrongInput = true;
+                wrongInput = true;
             }
         }catch(std::invalid_argument){
             wrongInput = true;
@@ -83,7 +79,7 @@ void enterCharToContinue(string message, string charRequested){
     string input;
 
     do{
-        cout<<"\n\n"<<message<<": ";
+        cout<<"\n"<<message<<": ";
         cin>>input;
 
         if(input==charRequested){
@@ -93,6 +89,6 @@ void enterCharToContinue(string message, string charRequested){
 }
 
 void pressEnterToContinue(){
-    cout<<"\n\nPress 'Enter' to continue: ";
-    getchar();
+    cout<<"\n\nPress 'Enter' to Continue: ";
+    cin.get();
 }
