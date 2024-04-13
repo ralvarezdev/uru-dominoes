@@ -231,16 +231,16 @@ void Board::addCard(Dominoes *domino)
     else
         checkDownPosition(equalTiles, &row, &col, &lieDown);
 
-    // For Testing
+    // For Testing Purposes
     /*
-     */
     cout << equalTiles << ' ' << sideA << ' ' << sideB;
+    */
     pressEnterToCont();
 
     if (equalTiles)
     {
         int sep = (lieDown ? col : row) - 1;
-        // For Testing
+        // For Testing Purposes
         /*
         cout << lieDown << '\n'
              << row << '\n'
@@ -286,7 +286,7 @@ void Board::addCard(Dominoes *domino)
                 separator = freePosition + 2 * x;
         }
 
-        // For Testing
+        // For Testing Purposes
         /*
         cout << lieDown << '\n'
              << row << '\n'
@@ -505,7 +505,7 @@ bool Dominoes::convertIntToCard(bool newGame, int numberPlayers, int cardNumber)
     if (numberPlayers == 3 && cardNumber == 0)
         sideA = sideB = 6;
 
-    // For Testing
+    // For Testing Purposes
     /*
     cout << sideA << ' ' << sideB << ' ' << cardNumber;
     pressEnterToCont();

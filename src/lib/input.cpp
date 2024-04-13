@@ -106,8 +106,8 @@ void enterCharToContinue(string message, int charRequested)
 // Function to Stop the Program Flow while the User doesn't press the ENTER key
 void pressEnterToCont()
 {
-    string temp;
+    string _temp;
 
     cout << "\n\nPress ENTER to Continue: ";
-    getline(cin, temp);
+    getline(cin, _temp);
 }

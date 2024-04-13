@@ -183,7 +183,6 @@ int main()
                 {
                     players[playerTurn].playCard(&dominoesBoard, cardsPerPlayer, sixDoublePos);
                     newGame = false;
-                    pressEnterToCont();
                 }
                 else
                 {
