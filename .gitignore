@@ -1,3 +1,9 @@
+# jetbrain's ides
+.idea/
+
+# vscode
+.vscode/
+
 # ignore ALL .cmake, .a files
 *.cmake
 *.a

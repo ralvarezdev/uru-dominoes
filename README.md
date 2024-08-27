@@ -1,26 +1,29 @@
-# Blackjack
-This repository contains the source code of a Dominoes Minigame that can be Executed in the Terminal, developed by:
+# Dominoes
+
+This repository contains the source code of a Dominoes terminal game, for the laboratory final project of the Programming I course of the Computer Science career at the Rafael Urdaneta University, located in Maracaibo, Venezuela.
 
 ## Developers
-Ramón Álvarez <a href="https://github.com/ralvarezdev">(ralvarezdev)</a>.
+
+- [ralvarezdev](https://github.com/ralvarezdev) - Ramón Álvarez
 
 ## Programming Languages
-Only C++.
+
+- C++
 
 ## Installation
 
 <ol>
 <li>Clone this repository to your local machine using the following command:
 
-```git clone https://github.com/ralvarezdev/dominoes```
+```git clone https://github.com/ralvarezdev/uru-dominoes```
 </li>
 
-<li>Change your Current Working Directory to where the Repository was Cloned</li>
+<li>Change your Current Working Directory to where the repository was cloned</li>
 
-<li>There are Two Ways to Compile the Program:</li>
+<li>There are two ways to compile the program:</li>
 
 <ol>
-<li>With <strong>G++</strong> (You must have Installed <strong>MinGW Compiler</strong>). Use the following command:
+<li>With <strong>G++</strong> (you must have installed <strong>MinGW Compiler</strong>). Use the following command:
 
 <details>
 <summary>Command for Windows</summary>
@@ -36,7 +39,7 @@ Only C++.
 
 </details></li>
 
-<li>With <strong>CMake</strong> (You must have Installed <strong>CMake and Make</strong>). First, Get to the <code>bin</code> Folder inside the Repository. Use the following command:
+<li>With <strong>CMake</strong> (you must have installed <strong>CMake and Make</strong>). First, get to the <code>bin</code> folder inside the repository. Use the following command:
 
 <details>
 <summary>Command for Windows</summary>
@@ -55,4 +58,4 @@ Only C++.
 <li>Run the program by clicking the <code>Dominoes.exe</code>.</li>
 </ol>
 
-<strong>For a Better User Experience, Resize the Terminal Window to Fullscreen</strong>
+<strong>For a better User Experience, resize the terminal window to fullscreen mode</strong>
